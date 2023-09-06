@@ -77,7 +77,9 @@ void CPda::UpdateActiveContacts()
     for (; it != feel_touch.end(); ++it)
     {
         CEntityAlive* pEA = smart_cast<CEntityAlive*>(*it);
-        if (!!pEA->g_Alive() && !pEA->cast_base_monster())
+
+        // Should display both the stalkers and the mutants.
+        if (!!pEA->g_Alive() /* && !pEA->cast_base_monster()*/)
         {
             m_active_contacts.push_back(*it);
         }
